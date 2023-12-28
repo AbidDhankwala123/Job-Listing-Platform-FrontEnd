@@ -98,7 +98,7 @@ const Register = ({ authenticated, setAuthenticated, setDisplaySuccess }) => {
       return;
     }
 
-    axios.post(`${process.env.REACT_APP_FRONTEND_URL_FOR_AUTH}/register`, registerUserObject, { headers: { "Content-Type": "application/json" } })
+    axios.post(`${process.env.REACT_APP_FRONTEND_URL_FOR_AUTH}register`, registerUserObject, { headers: { "Content-Type": "application/json" } })
       .then(response => {
         navigate("/");
         localStorage.setItem("jwttoken", response.data.jwtToken);

@@ -44,7 +44,7 @@ const Login = ({ setAuthenticated, setDisplaySuccess, authenticated }) => {
     if (validateEmail() || validatePassword()) {
       return;
     }
-    axios.post(`${process.env.REACT_APP_FRONTEND_URL_FOR_AUTH}/login`, loginUserObject, { headers: { "Content-Type": "application/json" } })
+    axios.post(`${process.env.REACT_APP_FRONTEND_URL_FOR_AUTH}login`, loginUserObject, { headers: { "Content-Type": "application/json" } })
       .then(response => {
         navigate("/");
         localStorage.setItem("jwttoken", response.data.jwtToken);
