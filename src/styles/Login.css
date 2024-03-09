@@ -23,7 +23,12 @@
     color: #525252;
 
 }
+.eye{
+    position: relative;
+    right: 50px;
+    color: red;
 
+}
 .job-finder-text,
 .have-account,
 .form-input {

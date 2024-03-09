@@ -5,11 +5,14 @@ import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios"
+import { LuEye, LuEyeOff } from "react-icons/lu"
+
 
 const Login = ({ setAuthenticated, setDisplaySuccess, authenticated }) => {
   let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const loginUserObject = {
     email,
@@ -69,7 +72,9 @@ const Login = ({ setAuthenticated, setDisplaySuccess, authenticated }) => {
             <input type="email" name="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder='Email' className='form-input' />
           </div><br />
           <div>
-            <input type="password" name="password" required value={password} onChange={e => setPassword(e.target.value)} placeholder='Password' className='form-input' />
+            {/* <input type="password" name="password" required value={password} onChange={e => setPassword(e.target.value)} placeholder='Password' className='form-input' /> */}
+            <input type={showPassword ? "text" : "password"} name="password" required value={password} onChange={e => setPassword(e.target.value)} placeholder='Password' className='form-input' />
+            {showPassword ? <LuEyeOff onClick={() => setShowPassword(false)} className='eye'/> : <LuEye className='eye' onClick={() => setShowPassword(true)}/>}
           </div><br />
           <button>Sign in</button>
         </form>

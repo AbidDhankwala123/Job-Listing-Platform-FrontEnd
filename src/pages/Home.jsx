@@ -79,6 +79,9 @@ const Home = ({ setCompanyData, authenticated, setAuthenticated, displaySuccess,
     setSkillsRequired("");
     setSkillsArray([]);
   }
+  if(!companyData){
+    return <Loader/>
+  }
   return (
     <div>
       <Header authenticated={authenticated} setAuthenticated={setAuthenticated} />
@@ -123,7 +126,7 @@ const Home = ({ setCompanyData, authenticated, setAuthenticated, displaySuccess,
           </div>
         </div>
 
-        {companyData ? companyData.map((company, index) => {
+        {companyData && companyData.map((company, index) => {
           return (
             <div className='list-jobs' key={index}>
               <div style={{ display: "flex", gap: "20px" }}>
@@ -165,7 +168,7 @@ const Home = ({ setCompanyData, authenticated, setAuthenticated, displaySuccess,
 
             </div>
           )
-        }):<Loader/>}
+        })}
 
 
       </div>
